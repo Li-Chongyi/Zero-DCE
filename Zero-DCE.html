@@ -1,0 +1,286 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>EDVR: Video Restoration with Enhanced Deformable Convolutional Networks</title>
+  <!--=================Meta tags==========================-->
+  <meta name="robots" content="index,follow">
+  <meta name="description"
+    content="Video restoration tasks, including super-resolution, deblurring, etc, are drawing increasing attention in the computer vision community. A challenging benchmark named REDS is released in the NTIRE19 Challenge. This new benchmark challenges existing methods from two aspects: (1) how to align multiple frames given large motions, and (2) how to effectively fuse different frames with diverse motion and blur. In this work, we propose a novel Video Restoration framework with Enhanced Deformable networks, termed EDVR, to address these challenges. First, to handle large motions, we devise a Pyramid, Cascading and Deformable (PCD) alignment module, in which frame alignment is done at the feature level using deformable convolutions in a coarse-to-fine manner. Second, we propose a Temporal and Spatial Attention (TSA) fusion module, in which attention is applied both temporally and spatially, so as to emphasize important features for subsequent restoration. Thanks to these modules, our EDVR wins the champions and outperforms the second place by a large margin in all four tracks in the NTIRE19 video restoration and enhancement challenges. EDVR also demonstrates superior performance to state-of-the-art published methods on video super-resolution and deblurring. The code is available at https://github.com/xinntao/EDVR.">
+  <meta name="keywords"
+    content="video, super resolution, deblurring, denoise, video restoration, deformable, pyramid, attention, EDVR">
+  <link rel="author" href="https://xinntao.github.io/projects/EDVR">
+  <!--=================js==========================-->
+  <link href="./css.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./project.css" media="screen">
+  <script src="./effect.js "></script>
+  <!-- Latex -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+      </script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+  <!--=================Google Analytics==========================-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129775907-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129775907-1');
+  </script>
+</head>
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+      <div class="section head">
+        <h1>
+          <font color="Tomato">EDVR</font>: <font color="Tomato">V</font>ideo <font color="Tomato">R</font>estoration
+          with <font color="Tomato">E</font>nhanced <font color="Tomato">D</font>eformable
+        </h1>
+        <h1>Convolutional Networks</h1>
+        <!--=================Authors==========================-->
+        <div class="authors">
+          <a href="https://xinntao.github.io/" target="_blank">Xintao Wang</a> <sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+          Kelvin C.K. Chan <sup>2</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://yuke93.github.io/" target="_blank">Ke Yu</a> <sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href=" https://scholar.google.com.hk/citations?user=OSDCB0UAAAAJ" target="_blank">Chao Dong</a>
+          <sup>3</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="http://personal.ie.cuhk.edu.hk/~ccloy/" target="_blank">Chen Change Loy</a> <sup>2</sup>
+        </div>
+
+        <div class="affiliations ">
+          <sup>1</sup> <a href="http://mmlab.ie.cuhk.edu.hk/" target="_blank">CUHK - SenseTime Joint Lab, The Chinese
+            University of Hong Kong</a> <br>
+          <sup>2</sup> Nanyang Technological University, Singapore<br>
+          <sup>3</sup> SIAT-SenseTime Joint Lab, Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences
+        </div>
+        <!--=================Tabs==========================-->
+        <ul id="tabs">
+          <li><a href="#materials" name="#tab1">Materials</a></li>
+          <li><a href="#pcd_tsa" name="#tab2">PCD & TSA</a></li>
+          <li><a href="#ablations" name="#tab3">Ablations</a></li>
+          <li><a href="#results" name="#tab4">Results</a></li>
+          <li><a href="#citation" name="#tab5">Citation</a></li>
+      </div>
+      <br>
+      <!--=================Teasers==========================-->
+      <div id="img_intro_examples" class="img_container">
+        <center>
+          <div class="leftView">
+            <div class="mask" style="width:80px;height:80px"></div>
+            <img class='small' src="./EDVR_src/arch.png">
+          </div>
+        </center>
+      </div>
+      <div class="section">
+        <p><b>The EDVR framework</b>. It is a unified framework suitable for various video restoration tasks,
+          <i>e.g.</i>, super-resolution and
+          deblurring. Inputs with high spatial resolution are first down-sampled to reduce computational cost. Given
+          blurry inputs, a PreDeblur
+          Module is inserted before the PCD Align Module to improve alignment accuracy. We use three input frames as an
+          illustrative example.</p>
+      </div>
+      <!--=================Highlights==========================-->
+      <div class="section abstract">
+        <h2>Highlights</h2>
+        <ol>
+          <li>EDVR wins all <b>four</b> tracks in the <a href="http://www.vision.ee.ethz.ch/ntire19/"
+              target="_blank">NTIRE19 video restoration and enhancement challenges</a>.</li>
+          <li>We propose the PCD alignment module and TSA fusion module for effective alignment and fusion, respectively.
+          </li>
+          <li>We are constructing the <a href="https://xinntao.github.io/open-videorestoration/" target="_blank"><b>Open Video Restoration</b></a> project.
+          </li>
+        </ol>
+      </div>
+      <!--=================Materials==========================-->
+      <div class="section materials" , id="materials">
+        <h2>Materials</h2>
+        <table width="100%" align="center" border=none cellspacing="0" cellpadding="30">
+          <tr>
+            <td width="40%">
+              <center>
+                <a href="https://arxiv.org/abs/1905.02716" target="_blank" class="imageLink"><img src="./EDVR_src/paper_thumbnail.jpg" ,
+                    width="80%"></a><br><br>
+                <a href="https://arxiv.org/abs/1905.02716" target="_blank">Paper</a>
+              </center>
+            </td>
+            <td width="20%" valign="middle">
+              <center>
+                <a href="https://github.com/xinntao/EDVR" target="_blank" class="imageLink"><img src="./icon_github.png"
+                    , width="50%"></a><br><br>
+                <a href="https://github.com/xinntao/EDVR" target="_blank">Codes</a>
+              </center>
+            </td>
+            <td width="40%" valign="middle">
+              <center>
+                <a href="https://xinntao.github.io/open-videorestoration/" target="_blank" class="imageLink"><img
+                    src="./EDVR_src/open_video.png" , width="50%"></a><br><br>
+                <a href="https://xinntao.github.io/open-videorestoration/" target="_blank">Open Video Restoration</a>
+              </center>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!--=================Abstract==========================-->
+      <div class="section abstract">
+        <h2>Abstract</h2>
+        <br>
+        <p>
+          Video restoration tasks, including super-resolution, deblurring, <i>etc</i>, are drawing increasing attention
+          in the computer
+          vision community. A challenging benchmark named REDS is released in the NTIRE19 Challenge. This new benchmark
+          challenges
+          existing methods from two aspects: (1) how to <b>align</b> multiple frames given large motions, and (2) how to
+          effectively <b>fuse</b>
+          different frames with diverse motion and blur. In this work, we propose a novel Video Restoration framework
+          with
+          Enhanced Deformable networks, termed EDVR, to address these challenges. First, to handle large motions, we
+          devise a
+          <b>Pyramid, Cascading and Deformable (PCD) alignment module</b>, in which frame alignment is done at the
+          feature level using
+          deformable convolutions in a coarse-to-fine manner. Second, we propose a <b>Temporal and Spatial Attention
+            (TSA) fusion
+            module</b>, in which attention is applied both temporally and spatially, so as to emphasize important
+          features for
+          subsequent restoration. Thanks to these modules, our EDVR <b><i>wins the champions</i></b> and outperforms the
+          second place by <b><i>a large
+              margin</i></b> in all four tracks in the NTIRE19 video restoration and enhancement challenges. EDVR also
+          demonstrates superior
+          performance to state-of-the-art published methods on video super-resolution and deblurring.
+        </p>
+      </div>
+      <!--=================PCD and TSA Modules==========================-->
+      <div class="section" , id="pcd_tsa">
+        <h2> PCD and TSA Modules</h2>
+        <p>
+          <b>Left:</b> PCD alignment module with Pyramid, Cascading and Deformable convolution; <b>Right:</b> TSA
+          fusion module with Temporal and Spatial Attention. See <a href="#">our paper</a> for more details.
+        </p>
+        <div id="sr" class="img_container">
+          <center>
+            <img style="width:80%" src="./EDVR_src/pcd_tsa.jpg">
+          </center>
+        </div>
+      </div>
+      <br>
+
+      <!--=================Ablation studies==========================-->
+      <div class="section" , id="ablations">
+        <h2>Ablation Studies on PCD and TSA Modules</h2>
+        <p>
+          We show representative features before and after different alignment modules, and depict the flow (derived by
+          PWCNet)
+          between reference and neighboring features. Compared with the flow without PCD alignment, the flow of the PCD
+          outputs
+          is much smaller and cleaner, indicating that the PCD module can successfully handle large and complex motions.
+        </p>
+        <div id="sr" class="img_container">
+          <center>
+            <img style="width:90%" src="./EDVR_src/pcd_flow.jpg">
+          </center>
+        </div>
+        <p>
+          We present the flow between the reference and neighboring frames, together with the temporal attention of each
+          frame.
+          It is observed that the frames and regions with lower flow magnitude tend to have higher attention, indicating
+          that
+          the smaller the motion is, the more informative
+          the corresponding frames and regions are.
+        </p>
+        <div id="sr" class="img_container">
+          <center>
+            <img style="width:90%" src="./EDVR_src/tsa_flow.jpg">
+          </center>
+        </div>
+      </div>
+      <br>
+      <!--=================Applications==========================-->
+      <div class="section" , id="results">
+        <h2>Results</h2>
+        <!--=================*******==========================-->
+        <h3>1. Video Super-Resolution on Vid4 Dataset</h3>
+        <div id="vid4" class="img_container">
+          <center>
+            <div class="leftView">
+              <div class="mask" style="width:70px;height:70px"></div>
+              <img class='small' src="./EDVR_src/vid4.jpg">
+            </div>
+          </center>
+        </div>
+        <br>
+        <!--=================*******==========================-->
+        <h3>2. Video Super-Resolution on Vimeo90K Dataset</h3>
+        <div id="vimeo90k" class="img_container">
+          <center>
+            <div class="leftView">
+              <div class="mask" style="width:70px;height:70px"></div>
+              <img class='small' src="./EDVR_src/vimeo90k.jpg">
+            </div>
+          </center>
+        </div>
+        <br>
+        <!--=================*******==========================-->
+        <h3>3. Video Deblurring on REDS4 Dataset</h3>
+        <div id="reds4" class="img_container">
+          <center>
+            <div class="leftView">
+              <div class="mask" style="width:70px;height:70px"></div>
+              <img class='small' src="./EDVR_src/reds_deblur.jpg">
+            </div>
+          </center>
+        </div>
+        <br>
+        <!--=================*******==========================-->
+        <h3>4. Competition Results on REDS4 Dataset</h3>
+        <div id="reds4" class="img_container">
+          <center>
+            <div class="leftView">
+              <div class="mask" style="width:70px;height:70px"></div>
+              <img class='small' src="./EDVR_src/reds.jpg">
+            </div>
+          </center>
+        </div>
+        <br>
+      </div>
+      <!--=================Citation==========================-->
+      <div class="section citation" , id="citation">
+        <h2>Citation</h2>
+        <div class="section bibtex">
+          <pre>@InProceedings{wang2019edvr,
+          author = {Wang, Xintao and Chan, Kelvin C.K. and Yu, Ke and Dong, Chao and Loy, Chen Change},
+          title = {EDVR: Video Restoration with Enhanced Deformable Convolutional Networks},
+          booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+          month = {June},
+          year = {2019}
+          }
+          </pre>
+          <pre>@Article{tian2018tdan,
+          author = {Tian, Yapeng and Zhang, Yulun and Fu, Yun and Xu, Chenliang},
+          title = {TDAN: Temporally deformable alignment network for video super-resolution},
+          journal = {arXiv preprint arXiv:1812.02898},
+          year = {2018}
+          }
+          </pre>
+        </div>
+      </div>
+      <!--=================Contact==========================-->
+      <div class="section contact">
+        <h2 id="contact">Contact</h2>
+        <p>If you have any question, please contact Xintao Wang at <strong>wx016@ie.cuhk.edu.hk</strong>.</p>
+      </div>
+</body>
+
+</html>
