@@ -15,7 +15,7 @@ Pytorch implementation of Zero-DCE
 Zero-DCE does not need special configurations. Just basic environment. 
 
 ### Folder structure
-Download the Zero-DCE-code first.
+Download the Zero-DCE_code first.
 The following shows the basic folder structure.
 ```
 
