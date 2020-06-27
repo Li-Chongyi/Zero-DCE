@@ -36,13 +36,17 @@ python lowlight_test.py
 The script will process the images in the sub-folders of "test_data" folder and make a new folder "result" in the "data". You can find the enhanced images in the "result" folder.
 
 ## Citation
-@Inproceedings{Zero-DCE,
-  author        = "Chunle Guo and Chongyi Li and Jichang Guo and Chen Change Loy and Junhui Hou and Sam Kwong and Runming Cong",
-  title         = "Zero-reference deep curve estimation for low-light image enhancement",
-  journal       = "CVPR",
-  pages         = "1780-1789",
-  year          = "2020",
+
+```
+@inproceedings{Zero-DCE,
+ author = {Guo, Chunle Guo and Li, Chongyi and Guo, Jichang and Loy, Chen Change and Hou, Junhui and Kwong, Sam and Cong, Runmin},
+ title = {Zero-reference deep curve estimation for low-light image enhancement},
+ booktitle = {Proceedings of the IEEE conference on computer vision and pattern recognition (CVPR)},
+ pages    = {1780-1789},
+ month = {June},
+ year = {2020}
 }
+```
 
 (Full paper: http://openaccess.thecvf.com/content_CVPR_2020/papers/Guo_Zero-Reference_Deep_Curve_Estimation_for_Low-Light_Image_Enhancement_CVPR_2020_paper.pdf)
 
