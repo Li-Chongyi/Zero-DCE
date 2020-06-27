@@ -5,6 +5,8 @@ We relese our testing code first. The Zero-DCE is in the product, so we may rele
 
 You can find more details here: https://li-chongyi.github.io/Proj_Zero-DCE.html. Have fun!
 
+The implementation of Zero-DCE is for non-commercial use only. 
+
 # Pytorch
 Pytorch implementation of Zero-DCE
 
