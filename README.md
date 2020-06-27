@@ -8,9 +8,9 @@ You can find more details here: https://li-chongyi.github.io/Proj_Zero-DCE.html.
 # Pytorch
 Pytorch implementation of Zero-DCE
 
-## Development Environment
+## Requirements
 1. Python 3 
-2. Pytorch >1.0
+2. Pytorch
 
 Zero-DCE does not need special configurations. Just basic environment. 
 
@@ -37,7 +37,7 @@ python lowlight_test.py
 ```
 The script will process the images in the sub-folders of "test_data" folder and make a new folder "result" in the "data". You can find the enhanced images in the "result" folder.
 
-## Citation
+## Bibtex
 
 ```
 @inproceedings{Zero-DCE,
