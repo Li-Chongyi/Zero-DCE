@@ -5,12 +5,13 @@ We relese our testing code first. The Zero-DCE is in the product, so we may rele
 
 You can find more details here: https://li-chongyi.github.io/Proj_Zero-DCE.html. Have fun!
 
-# pytorch
+# Pytorch
 Pytorch implementation of Zero-DCE
 
 ## Development Environment
 1. Python 3 
 2. Pytorch >1.0
+
 Zero-DCE does not need special configurations. Just basic environment. 
 
 ### Folder structure
