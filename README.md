@@ -15,8 +15,10 @@ Pytorch implementation of Zero-DCE
 Zero-DCE does not need special configurations. Just basic environment. 
 
 ### Folder structure
-The following shows basic folder structure.
+Download the Zero-DCE-code first.
+The following shows the basic folder structure.
 ```
+
 ├── data
 │   ├── test_data # testing data. You can make a new folder for your testing data, like LIME, MEF, and NPE.
 │   │   ├── LIME 
