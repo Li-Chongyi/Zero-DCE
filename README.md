@@ -1,7 +1,51 @@
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
 
 
-Zero-DCE code and model: coming soon. The Zero-DCE is in the product, so we may release the training codes late. 
+We relese our testing code first. The Zero-DCE is in the product, so we may release the training codes late. 
 
 You can find more details here: https://li-chongyi.github.io/Proj_Zero-DCE.html. Have fun!
+
+# pytorch
+Pytorch implementation of Zero-DCE
+
+## Development Environment
+1. Python 3 
+2. Pytorch >1.0
+Zero-DCE does not need special configurations. Just basic environment. 
+
+### Folder structure
+The following shows basic folder structure.
+```
+├── data
+│   ├── test_data # testing data. You can make a new folder for your testing data, like LIME, MEF, and NPE.
+│   │   ├── LIME 
+│   │   └── MEF
+│   │   └── NPE
+│   └── train_data # will release soon
+├── lowlight_test.py # testing code
+├── model.py # Zero-DEC network
+├── dataloader.py
+├── snapshots
+│   ├── Epoch99.pth #  A pre-trained snapshot (Epoch99.pth)
+```
+### Test
+```
+python lowlight_test.py 
+```
+The script will process the images in the sub-folders of "test_data" folder and make a new folder "result" in the "data". You can find the enhanced images in the "result" folder.
+
+## Citation
+@Inproceedings{Zero-DCE,
+  author        = "Chunle Guo and Chongyi Li and Jichang Guo and Chen Change Loy and Junhui Hou and Sam Kwong and Runming Cong",
+  title         = "Zero-reference deep curve estimation for low-light image enhancement",
+  journal       = "CVPR",
+  pages         = "1780-1789",
+  year          = "2020",
+}
+
+(Full paper: http://openaccess.thecvf.com/content_CVPR_2020/papers/Guo_Zero-Reference_Deep_Curve_Estimation_for_Low-Light_Image_Enhancement_CVPR_2020_paper.pdf)
+
+## Contact
+If you have any questions, please contact Chongyi Li at lichongyi25@gmail.com or Chunle Guo at guochunle@tju.edu.cn.
+
 
