@@ -1,41 +1,48 @@
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
 
-
-We relese our testing code first. The Zero-DCE is in the product, so we may release the training codes late. 
-
 You can find more details here: https://li-chongyi.github.io/Proj_Zero-DCE.html. Have fun!
+
+The implementation of Zero-DCE is for non-commercial use only. 
 
 # Pytorch
 Pytorch implementation of Zero-DCE
 
-## Development Environment
+## Requirements
 1. Python 3 
-2. Pytorch >1.0
+2. Pytorch 1.0
 
 Zero-DCE does not need special configurations. Just basic environment. 
 
 ### Folder structure
-The following shows basic folder structure.
+Download the Zero-DCE_code first.
+The following shows the basic folder structure.
 ```
+
 ├── data
 │   ├── test_data # testing data. You can make a new folder for your testing data, like LIME, MEF, and NPE.
 │   │   ├── LIME 
 │   │   └── MEF
 │   │   └── NPE
-│   └── train_data # will release soon
+│   └── train_data 
 ├── lowlight_test.py # testing code
+├── lowlight_train.py # training code
 ├── model.py # Zero-DEC network
 ├── dataloader.py
 ├── snapshots
 │   ├── Epoch99.pth #  A pre-trained snapshot (Epoch99.pth)
 ```
-### Test
+### Test: cd Zero-DCE_code
 ```
 python lowlight_test.py 
 ```
 The script will process the images in the sub-folders of "test_data" folder and make a new folder "result" in the "data". You can find the enhanced images in the "result" folder.
 
-## Citation
+### Train: cd Zero-DCE_code
+```
+python lowlight_train.py 
+```
+
+## Bibtex
 
 ```
 @inproceedings{Zero-DCE,
