@@ -37,7 +37,7 @@ python lowlight_test.py
 ```
 The script will process the images in the sub-folders of "test_data" folder and make a new folder "result" in the "data". You can find the enhanced images in the "result" folder.
 
-### Train: cd Zero-DCE_code
+### Train: 1) cd Zero-DCE_code, 2) download the training data [google drive](<a href="https://github.com/cchen156/Learning-to-See-in-the-Dark">https://github.com/cchen156/Learning-to-See-in-the-Dark</a>) or [baidu cloud] (<a href="https://github.com/cchen156/Learning-to-See-in-the-Dark">https://github.com/cchen156/Learning-to-See-in-the-Dark</a>) , and 3) put the  downloaded "train_data" folder to "data" folder.
 ```
 python lowlight_train.py 
 ```
