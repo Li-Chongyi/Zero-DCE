@@ -31,7 +31,9 @@ The following shows the basic folder structure.
 ├── snapshots
 │   ├── Epoch99.pth #  A pre-trained snapshot (Epoch99.pth)
 ```
-### Test: cd Zero-DCE_code
+### Test: 
+
+cd Zero-DCE_code
 ```
 python lowlight_test.py 
 ```
