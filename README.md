@@ -8,10 +8,15 @@ The implementation of Zero-DCE is for non-commercial use only.
 Pytorch implementation of Zero-DCE
 
 ## Requirements
-1. Python 3 
-2. Pytorch 1.0
-
+1. Python 3.7 
+2. Pytorch 1.0.0
+3. opencv
+4. torchvision 0.2.1
+5. cuda100
 Zero-DCE does not need special configurations. Just basic environment. 
+
+Or you can create a conda environment to run our code like this:
+conda create --name zerodce_env opencv pytorch==1.0.0 torchvision==0.2.1 cuda100 python=3.7 -c pytorch
 
 ### Folder structure
 Download the Zero-DCE_code first.
