@@ -13,6 +13,7 @@ Pytorch implementation of Zero-DCE
 3. opencv
 4. torchvision 0.2.1
 5. cuda100
+
 Zero-DCE does not need special configurations. Just basic environment. 
 
 Or you can create a conda environment to run our code like this:
