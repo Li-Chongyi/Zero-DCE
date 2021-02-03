@@ -13,6 +13,7 @@ Pytorch implementation of Zero-DCE
 3. opencv
 4. torchvision 0.2.1
 5. cuda100
+6. visdom
 
 Zero-DCE does not need special configurations. Just basic environment. 
 
@@ -58,7 +59,7 @@ python lowlight_train.py
 4) start visdom service in terminal before training if visualization is needed
 
 ```bash
-python visdom
+visdom
 ```
 
 ## Bibtex
