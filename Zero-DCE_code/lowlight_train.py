@@ -12,6 +12,7 @@ import model
 import Myloss
 import numpy as np
 from torchvision import transforms
+import visdom
 
 
 def weights_init(m):
@@ -26,7 +27,7 @@ def weights_init(m):
 
 
 
-def train(config):
+def train(config, v):
 
 	os.environ['CUDA_VISIBLE_DEVICES']='0'
 
@@ -52,12 +53,17 @@ def train(config):
 	
 	DCE_net.train()
 
+	x = []
+	y = []
 	for epoch in range(config.num_epochs):
 		for iteration, img_lowlight in enumerate(train_loader):
 
 			img_lowlight = img_lowlight.cuda()
 
 			enhanced_image_1,enhanced_image,A  = DCE_net(img_lowlight)
+
+			v.image(img_lowlight[0], win='input')
+			v.image(enhanced_image[0 ], win='enhanced')
 
 			Loss_TV = 200*L_TV(A)
 			
@@ -81,6 +87,9 @@ def train(config):
 			if ((iteration+1) % config.display_iter) == 0:
 				print("Loss at iteration", iteration+1, ":", loss.item())
 			if ((iteration+1) % config.snapshot_iter) == 0:
+				x.append(epoch*config.train_batch_size + iteration)
+				y.append(loss.item())
+				v.line(X=x, Y=y, win='loss', opts={'title': 'total loss'})
 				
 				torch.save(DCE_net.state_dict(), config.snapshots_folder + "Epoch" + str(epoch) + '.pth') 		
 
@@ -111,8 +120,9 @@ if __name__ == "__main__":
 	if not os.path.exists(config.snapshots_folder):
 		os.mkdir(config.snapshots_folder)
 
+	v = visdom.Visdom()
 
-	train(config)
+	train(config, v)
 
 
 
