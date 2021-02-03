@@ -55,6 +55,12 @@ The script will process the images in the sub-folders of "test_data" folder and 
 python lowlight_train.py 
 ```
 
+4) start visdom service in terminal before training if visualization is needed
+
+```bash
+python visdom
+```
+
 ## Bibtex
 
 ```
