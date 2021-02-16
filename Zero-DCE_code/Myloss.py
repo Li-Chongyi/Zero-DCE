@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import math
 from torchvision.models.vgg import vgg16
-import pytorch_colors as colors
 import numpy as np
 
 
