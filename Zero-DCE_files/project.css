@@ -1,0 +1,555 @@
+html,
+body {
+  margin: 10px 0px;
+  padding: 0px;
+  text-align: center;
+  background-color: #EEEEEE;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  -webkit-text-size-adjust: none;
+}
+
+table {
+  /*border: 1px solid black;*/
+  border: none;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  /* border: 1px solid black; */
+  border: none;
+  padding: 5px;
+}
+
+#content {
+  width: auto;
+  max-width: 960px;
+  min-width: 800px;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  text-align: left;
+  /* border:1px solid #777; */
+  background-color: white;
+  box-shadow: 0px 1px 5px #999;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12pt;
+  /* line-height: 2; */
+  -webkit-text-size-adjust: none;
+}
+
+#content-inner {
+  padding: 15px 0;
+}
+
+#teaseimg {
+  height: auto;
+  width: 50%;
+  box-shadow: 0px 0px 10px #444444;
+  border: 1px solid #000000;
+}
+
+/* for enlarging images */
+
+.img_container {
+  position: relative;
+  /* background: rgba(96, 248, 50, 0.4); */
+  z-index: 1
+}
+
+.img_container .leftView {
+  width: 95%;
+  /* background: rgba(248, 73, 50, 0.4); */
+  /*box-shadow: 3px 8px 5px 0px rgba(0, 0, 0, 0.2)*/
+}
+
+.img_container .leftView .mask {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  display: none;
+  cursor: move;
+  top: 0;
+  left: 0;
+  background: rgba(50, 153, 248, 0.4);
+}
+
+.img_container .leftView .small {
+  width: 65%;
+  position:relative;
+}
+
+.img_container .leftView .std {
+  width: 100%;
+  position:relative;
+}
+
+.img_container .leftView .big {
+  width: 110%;
+  position:relative;
+}
+.img_container .rightView {
+  width: 400px;
+  height: 400px;
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0px 1px 5px #999;
+  border: 4px solid rgb(50, 153, 248)
+}
+
+.img_container .rightView .big {
+  /* width: 1200%; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5
+}
+
+#tabs {
+  overflow: hidden;
+  position: relative;
+  bottom: -7px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tabs li {
+  float: left;
+  margin: 0 -15px 0 0;
+}
+
+#tabs a {
+  float: left;
+  position: relative;
+  padding: 0 40px;
+  height: 0;
+  line-height: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid #3D3D3D;
+  /* border-bottom-color: #777\9; */
+  opacity: .3;
+  filter: alpha(opacity=30);
+}
+
+#tabs a:hover,
+#tabs a:focus {
+  border-bottom-color: #2ac7e1;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#tabs a:focus {
+  outline: 0;
+}
+
+#tabs #current {
+  z-index: 3;
+  border-bottom-color: #3d3d3d;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#tabs a {
+  height: 0;
+  line-height: 30px;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid #3D3D3D;
+}
+
+hr.smooth {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+  background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+
+a:link {
+  color: #0066CC;
+  text-decoration: none
+}
+
+a:visited {
+  color: #743399;
+  text-decoration: none
+}
+
+a:hover {
+  color: #FF4B33;
+  text-decoration: none
+}
+
+a:active {
+  color: #FF4B33;
+  text-decoration: none
+}
+
+/* Some of this has been copied from http://www.mpi-inf.mpg.de/resources/rgbz-camera/ */
+
+/* Sections of the page. */
+
+.section {
+  margin: 2em 2em 0.5em 2em;
+  line-height: 130%;
+}
+
+.section h2 {
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+/* Logo section. */
+
+.logos {
+  margin: 1.5em 0;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.logos img {
+  vertical-align: top;
+  margin: 0 1.25em;
+  border: 0;
+}
+
+/* Page header. */
+
+.head {
+  text-align: center;
+  margin: 0.6em 0;
+  padding: 0.6em 0;
+  background-color: #f3ecec40;
+  text-shadow: 1px 1px 3px #cccccc;
+}
+
+.head {
+  color: #111;
+}
+
+.head h1 {
+  font-size: 24pt;
+  line-height: 27pt;
+  margin: 10px 0;
+}
+
+.head h1 a {
+  text-decoration: none;
+}
+
+.authors {
+  font-size: 14pt;
+  margin: 0 0 1em 0;
+}
+
+.affiliations {
+  font-size: 13pt;
+  margin: -0.5em 0 10pt 0;
+}
+
+.venue {
+  font-style: italic;
+  font-size: 12pt;
+  margin: 1em 0 1em 0;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 10.5pt;
+  margin: 1em 0 1em 0;
+}
+
+/* Specific section styling. */
+
+.teaser {
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+div.content-primary .teaser p img {
+  display: block;
+  float: none;
+  border: 0;
+  margin: 4em auto 1em auto;
+}
+
+.abstract {
+  line-height: 130%;
+}
+
+.abstract p {
+  margin-top: 0;
+}
+
+.downloads ul {
+  margin-top: 0.5em;
+}
+
+.list ul {
+  margin-top: 0.5em;
+}
+
+.bibtex pre {
+  margin-bottom: 0;
+  font-family: Consolas, Monaco, monospace;
+  white-space: pre-wrap;
+  /* CSS 3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* IE 5.5+ */
+  width: 100%;
+  color: #444;
+  padding: 2px;
+  background: #eee;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+
+.acknowledgments {
+  line-height: 130%;
+}
+
+.acknowledgments p {
+  margin-top: 0;
+}
+
+.contact {
+  line-height: 130%;
+}
+
+.heading {
+  margin: 2.5em 0;
+  text-align: center;
+}
+
+.datasets {
+  width: 650px;
+  margin: 3em auto;
+}
+
+.datasets ul {
+  padding-bottom: 1em;
+}
+
+.dataset {
+  float: left;
+  width: 204px;
+  margin: 5px 10px 15px 0px;
+  text-align: center;
+}
+
+.dataset h2 {
+  display: inline;
+}
+
+.dataset img {
+  border: 2px solid #222;
+  margin: 0.25em auto;
+  display: block;
+}
+
+.backlink {
+  text-align: center;
+}
+
+/* Display lists in a grid of fixed size. This is useful when lists have associated images. */
+
+/* Idea from http://blog.mozilla.org/webdev/2009/02/20/cross-browser-inline-block/ */
+
+li.grid {
+  width: auto;
+  height: auto;
+  /* border: 1px solid #000; */
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px;
+  zoom: 1;
+  *display: inline;
+  _height: 100px;
+}
+
+/* Formatting for each item in a 2D grid. This is used typically in the downloads section. */
+
+.griditem {
+  font-size: 10pt;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+}
+
+.griditem img {
+  text-align: center;
+  height: 120px;
+  width: auto;
+}
+
+/* light-box */
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row>.column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 100%;
+}
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+
+.modal-content {
+  position: relative;
+  /* background-color: #fefefe; */
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1400px;
+}
+
+/* The Close Button */
+
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer
+}
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: rgb(0, 17, 253);
+  font-weight: bold;
+  font-size: 50px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(146, 10, 224, 0.486);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: 0px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+/* The dots/bullets/indicators */
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19)
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.36)
+}
