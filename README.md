@@ -4,6 +4,8 @@ You can find more details here: https://li-chongyi.github.io/Proj_Zero-DCE.html.
 
 The implementation of Zero-DCE is for non-commercial use only. 
 
+We also provide a MindSpore version of our code: https://pan.baidu.com/s/1uyLBEBdbb1X4QVe2waog_g (passwords: of5l).
+
 # Pytorch
 Pytorch implementation of Zero-DCE
 
