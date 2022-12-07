@@ -30,7 +30,7 @@ def Color_Choice(color_space,data_lowlight_path):
     data_lowlight = cv2.cvtColor(data_lowlight, cv2.COLOR_BGR2RGB)
     if color_space == "RGB":
         data_lowlight = (np.asarray(data_lowlight)/255.0)
-        n = [1,0,1,0,1,0]
+        n = [255,0,255,0,255,0]
         back = cv2.COLOR_RGB2BGR
     else: 
         if color_space == "HSV":
@@ -63,8 +63,8 @@ def Color_Choice(color_space,data_lowlight_path):
         data_lowlight_3 = ((c3-n[5])/(n[4]))
         data_lowlight = cv2.merge([data_lowlight_1,data_lowlight_2,data_lowlight_3])       
             
-        data_lowlight = torch.from_numpy(data_lowlight).float()
-        data_lowlight = data_lowlight.permute(2,0,1)
+    data_lowlight = torch.from_numpy(data_lowlight).float()
+    data_lowlight = data_lowlight.permute(2,0,1)
     return data_lowlight,n,back
 
 
