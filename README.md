@@ -1,7 +1,7 @@
-# What is differnt from original Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
-(1) 
-(2)
-(3)
+# What is differnt between this fixed version and original ZeroDCE.
+(1) providing 7 different color space apply("RGB","HSV","HLS","YCbCr","YUV","LAB","Luv").
+(2) providing allication on video.
+(3) providing tensorboard to display training loss.
 
 
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
