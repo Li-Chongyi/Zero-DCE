@@ -1,5 +1,5 @@
 # What is differnt between this fixed version and original ZeroDCE.
-(1) providing 7 different color space for training ("RGB","HSV","HLS","YCbCr","YUV","LAB","Luv").
+(1) providing 7 different color space for training ("RGB","HSV","HLS","YCbCr","YUV","LAB","LUV").
 
 (2) providing application on video.
 
