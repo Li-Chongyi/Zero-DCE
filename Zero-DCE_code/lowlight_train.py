@@ -43,7 +43,7 @@ def train(config):
 	    DCE_net.load_state_dict(torch.load(config.pretrain_dir))
 	"""
 	
-	train_dataset = dataloader.lowlight_loader(config.lowlight_images_path, config.channel)	
+	train_dataset = dataloader_1.lowlight_loader(config.lowlight_images_path, config.channel)	
 	print(len(train_dataset))	
 	
 	train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=config.train_batch_size, shuffle=True, num_workers=config.num_workers, pin_memory=True)
