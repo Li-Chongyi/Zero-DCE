@@ -7,7 +7,7 @@ import os
 import sys
 import argparse
 import time
-import dataloader
+import dataloader_1
 import model
 import Myloss
 import numpy as np
@@ -34,7 +34,7 @@ def train(config):
 		DCE_net = model.enhance_net_nopool_1_3().cuda()
 	elif config.channel=="HLS":
 		DCE_net = model.enhance_net_nopool_1_2().cuda()
-	elif config.channel=="YCbCr" or  config.channel=="YUV" or  config.channel=="LAB" or  config.channel=="Luv":
+	elif config.channel=="YCbCr" or  config.channel=="YUV" or  config.channel=="LAB" or  config.channel=="LUV":
 		DCE_net = model.enhance_net_nopool_1_1().cuda()
 	
 	DCE_net.apply(weights_init)
@@ -139,12 +139,3 @@ if __name__ == "__main__":
 
 
 	train(config)
-
-
-
-
-
-
-
-
-	
