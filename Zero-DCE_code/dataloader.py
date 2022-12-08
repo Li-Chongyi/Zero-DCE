@@ -64,9 +64,9 @@ class lowlight_loader(data.Dataset):
             elif self.channel=="YUV":
                 data_lowlight = cv2.cvtColor(data_lowlight, cv2.COLOR_RGB2YUV)
                 Y, U, V = cv2.split(data_lowlight)
-                data_lowlight_1 = ((Y-16.0)/(235.0-16.0)) 
-                data_lowlight_2 = ((U-16.0)/(235.0-16.0))
-                data_lowlight_3 = ((V-16.0)/(235.0-16.0))
+                data_lowlight_1 = ((Y)/(255.0)) 
+                data_lowlight_2 = ((U)/(255.0))
+                data_lowlight_3 = ((V)/(255.0))
             elif self.channel=="LAB":
                 data_lowlight = cv2.cvtColor(data_lowlight, cv2.COLOR_RGB2Lab)
                 L, A, B = cv2.split(data_lowlight)
