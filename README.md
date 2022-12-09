@@ -1,9 +1,11 @@
 # What is differnt between this fixed version and original ZeroDCE.
 (1) providing 7 different color space for training ("RGB","HSV","HLS","YCbCr","YUV","LAB","LUV").
 
-(2) providing application on video.
+(2) providing 7 different color space of 200 epochs pretrained weight.
 
-(3) providing tensorboard to display training loss.
+(3) providing application on video.
+
+(4) providing tensorboard to display training loss.
 
 
 
