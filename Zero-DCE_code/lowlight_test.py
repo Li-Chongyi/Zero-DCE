@@ -47,7 +47,7 @@ def Color_Choice(color_space,data_lowlight):
             back = cv2.COLOR_YCrCb2BGR
         elif color_space == "YUV":
             data_lowlight = cv2.cvtColor(data_lowlight, cv2.COLOR_RGB2YUV)
-            n = [255,0,255,0,255,0]#n = [235-16,16,255,0,255,0]#n = [235-16,16,240-16,16,240-16,16]#n = [235-16,16,235-16,16,235-16,16]
+            n = [255,0,255,0,255,0]
             back = cv2.COLOR_YUV2BGR
         elif color_space == "LAB":
             data_lowlight = cv2.cvtColor(data_lowlight, cv2.COLOR_RGB2Lab)
@@ -85,7 +85,7 @@ def lowlight(color_channel,lowlight_image):
         DCE_net = model.enhance_net_nopool_1_1().cuda()
     
     DCE_net.load_state_dict(torch.load("snapshots/"+color_channel+".pth"))
-    start = time.time()
+    #start = time.time()
     
     _,enhanced_image,_ = DCE_net(data_lowlight)
     data_lowlight = enhanced_image[0].permute(1,2,0).cpu().numpy()
@@ -98,8 +98,8 @@ def lowlight(color_channel,lowlight_image):
 
     data_enhanced = cv2.cvtColor(cv2.merge([temp1,temp2,temp3]), inchan)
     
-    end_time = (time.time() - start)
-    print(end_time)
+    #end_time = (time.time() - start)
+    #print(end_time)
     return data_enhanced
     """
     result_path = lowlight_images_path.replace('test_data','result')
@@ -122,21 +122,29 @@ if __name__ == '__main__':
         file_path = config.lowlight_images_path
         file_list = os.listdir(config.lowlight_images_path)
         if config.mode == "image":
+            start1 = time.time()
             for file_name in file_list:
                 test_list = glob.glob(file_path+file_name+"/*") 
                 for image_path in test_list:
 				# image = image
                     print(image_path)
+                    start2 = time.time()
                     data_lowlight = cv2.imread(image_path)
                     data_enhanced = lowlight(config.channel,data_lowlight)
                     result_path = image_path.replace('test_data','result')
                     if not os.path.exists(result_path.replace('/'+result_path.split("/")[-1],'')):
                         os.makedirs(result_path.replace('/'+result_path.split("/")[-1],''))
                     cv2.imwrite(result_path,data_enhanced)
+                    end_time2 = (time.time() - start2)
+                    print("executive time of each frame: ", end_time2)
+            end_time1 = (time.time() - start1)
+            print("executive time of all images: ", end_time1)
         elif config.mode == "video":
+            start1 = time.time()
             for file_name in file_list:
                 test_list = glob.glob(file_path+file_name+"/*") 
                 for video_path in test_list:
+                    start2 = time.time()
                     cap = cv2.VideoCapture(video_path)
                     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)  # float
                     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # float
@@ -150,9 +158,16 @@ if __name__ == '__main__':
                     while True:
                         ret_val, frame = cap.read()
                         if ret_val:
+                            start3 = time.time()
                             frame = np.array(frame)
                             lowlight(config.channel,frame)
                             frame_enhanced = lowlight(config.channel,frame)
                             vid_writer.write(frame_enhanced)
+                            end_time3 = (time.time() - start3)
+                            print("executive time of each frame: ", end_time3)
                         else:
                             break
+                    end_time2 = (time.time() - start2)
+                    print("executive time of full video: ", end_time2)
+            end_time1 = (time.time() - start1)
+            print("executive time of all videos: ", end_time1)
