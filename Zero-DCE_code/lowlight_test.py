@@ -144,8 +144,10 @@ if __name__ == '__main__':
             for file_name in file_list:
                 test_list = glob.glob(file_path+file_name+"/*") 
                 for video_path in test_list:
+                    print(video_path)
                     start2 = time.time()
                     cap = cv2.VideoCapture(video_path)
+                    fps = cap.get(cv2.CAP_PROP_FPS)
                     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)  # float
                     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # float
                     fps = cap.get(cv2.CAP_PROP_FPS)
@@ -155,6 +157,7 @@ if __name__ == '__main__':
                     vid_writer = cv2.VideoWriter(
 			            result_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (int(width), int(height))
 			        )
+                    i = 0
                     while True:
                         ret_val, frame = cap.read()
                         if ret_val:
@@ -164,10 +167,12 @@ if __name__ == '__main__':
                             frame_enhanced = lowlight(config.channel,frame)
                             vid_writer.write(frame_enhanced)
                             end_time3 = (time.time() - start3)
-                            print("executive time of each frame: ", end_time3)
+                            print("executive time of "+str(i+1)+"-th frame: ", end_time3)
+                            i = i+1
                         else:
                             break
                     end_time2 = (time.time() - start2)
+                    print("original frame per second: ",fps)
                     print("executive time of full video: ", end_time2)
             end_time1 = (time.time() - start1)
             print("executive time of all videos: ", end_time1)
