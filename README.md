@@ -86,8 +86,5 @@ The code is made available for academic research purpose only. Under Attribution
 (Full paper: http://openaccess.thecvf.com/content_CVPR_2020/papers/Guo_Zero-Reference_Deep_Curve_Estimation_for_Low-Light_Image_Enhancement_CVPR_2020_paper.pdf)
 
 ## Contact
-If you have any questions, please contact ICHEN LU at luyijan@gmail.com.
 
-## TensorFlow Version 
-Thanks tuvovan (vovantu.hust@gmail.com) who re-produces our code by TF. The results of TF version look similar with our Pytorch version. But I do not have enough time to check the details.
-https://github.com/tuvovan/Zero_DCE_TF
+If you have any questions, please contact ICHEN LU at luyijan@gmail.com.
