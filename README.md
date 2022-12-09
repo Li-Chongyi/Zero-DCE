@@ -1,12 +1,11 @@
-# What is differnt between this fixed version and original ZeroDCE.
-(1) providing 7 different color space for training ("RGB","HSV","HLS","YCbCr","YUV","LAB","LUV").
+# What is different between this fixed version and the original ZeroDCE?
+(1) providing 7 different color spaces for training ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV").
 
-(2) providing 7 different color space of 200 epochs pretrained weight.
+(2) providing 7 different color spaces of 200 epochs pretrained weight.
 
-(3) providing application on video.
+(3) providing applications on videos.
 
-(4) providing tensorboard to display training loss.
-
+(4) providing a tensorboard to display training loss.
 
 
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
