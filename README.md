@@ -6,7 +6,7 @@
 cd Zero-DCE_code
 ```
 ```
-python lowlight_test.py --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV")
+python lowlight_train.py --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV")
 ```
 (2) providing 7 different color spaces of 200 epochs pretrained weight.
 
@@ -16,7 +16,10 @@ python lowlight_test.py --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", a
 (3) providing applications on videos.
 
 ```
-cd Zero-DCE_code
+cd Zero-DCE_code --mode
+```
+```
+python lowlight_test.py --mode (video/image)
 ```
 (4) providing a tensorboard to display training loss.
 
