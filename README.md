@@ -11,7 +11,7 @@ python lowlight_test.py --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", a
 (2) providing 7 different color spaces of 200 epochs pretrained weight.
 
 ```
-./Zero-DCE_code
+./Zero-DCE_code/snapshots/("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV").pth
 ```
 (3) providing applications on videos.
 
@@ -20,6 +20,9 @@ cd Zero-DCE_code
 ```
 (4) providing a tensorboard to display training loss.
 
+```
+cd Zero-DCE_code
+```
 
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
 
