@@ -1,5 +1,5 @@
 # What is different between this fixed version and the original ZeroDCE?
-(1) providing 7 different color spaces for training ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV").
+###(1) providing 7 different color spaces for training ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV").
 
 ```
 cd Zero-DCE_code
