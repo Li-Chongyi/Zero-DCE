@@ -24,7 +24,7 @@ python lowlight_test.py --mode (video/image)
 (4) providing a tensorboard to display training loss.
 
 ```
-tensorboard --logdir logs/fit
+tensorboard --logdir log/train_loss_("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV")
 ```
 
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
