@@ -1,5 +1,5 @@
 # What is different between this fixed version and the original ZeroDCE?
-###(1) providing 7 different color spaces for training ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV").
+(1) providing 7 different color spaces for training ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV").
 
 ```
 cd Zero-DCE_code
@@ -7,17 +7,17 @@ cd Zero-DCE_code
 ```
 python lowlight_test.py --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV")
 ```
-###(2) providing 7 different color spaces of 200 epochs pretrained weight.
+(2) providing 7 different color spaces of 200 epochs pretrained weight.
 
 ```
 ./Zero-DCE_code
 ```
-###(3) providing applications on videos.
+(3) providing applications on videos.
 
 ```
 cd Zero-DCE_code
 ```
-###(4) providing a tensorboard to display training loss.
+(4) providing a tensorboard to display training loss.
 
 
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
