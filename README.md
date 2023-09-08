@@ -24,7 +24,7 @@ python lowlight_test.py --mode (video/image)
 (4) providing a tensorboard to display training loss.
 
 ```
-cd Zero-DCE_code
+tensorboard --logdir logs/fit
 ```
 
 # Zero-Reference Deep Curve Estimation for Low-Light Image Enhancement
