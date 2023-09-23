@@ -84,7 +84,7 @@ def lowlight(color_channel,lowlight_image):
     elif config.channel=="YCbCr" or  config.channel=="YUV" or  config.channel=="LAB" or  config.channel=="LUV":
         DCE_net = model.enhance_net_nopool_1_1().cuda()
     
-    DCE_net.load_state_dict(torch.load("snapshots/"+color_channel+".pth"))
+    DCE_net.load_state_dict(torch.load("snapshots/"+config.channel+".pth"))
     #start = time.time()
     
     _,enhanced_image,_ = DCE_net(data_lowlight)
