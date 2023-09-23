@@ -19,7 +19,7 @@ python lowlight_train.py --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", 
 cd Zero-DCE_code --mode
 ```
 ```
-python lowlight_test.py --mode (video/image)
+python lowlight_test.py --mode (video/image) --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV")
 ```
 (4) providing a tensorboard to display training loss.
 
