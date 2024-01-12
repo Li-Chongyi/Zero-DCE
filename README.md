@@ -16,7 +16,7 @@ python lowlight_train.py --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", 
 (3) providing applications on videos.
 
 ```
-cd Zero-DCE_code --mode
+cd Zero-DCE_code
 ```
 ```
 python lowlight_test.py --mode (video/image) --channel ("RGB", "HSV", "HLS", "YCbCr", "YUV", "LAB", and "LUV")
